@@ -1,0 +1,22 @@
+{
+  "name": "urlshortener2",
+  "description": "A URL shortener written using the Node.js ecosystem.",
+  "main": "index.js",
+  "authors": [
+    "Duco Winterwerp"
+  ],
+  "license": "MIT",
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.6",
+    "jquery": "~2.1.4"
+  }
+}
