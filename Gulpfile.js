@@ -34,17 +34,22 @@ gulp.task('compress-js', function() {
   var rootPath = './bower_components/';
   var files = [rootPath+'jquery/dist/jquery.js',
                rootPath+'bootstrap/dist/js/bootstrap.js',
-               './libs/modernizr-2.8.3-respond-1.4.2.min.js',
-               './scripts/main.js'];
-  return gulp.src(files)
+               rootPath+'toastr/toastr.js',
+               './libs/modernizr-2.8.3-respond-1.4.2.min.js'];
+  gulp.src(files)
              .pipe(concat('libs.js'))
              .pipe(uglify())
              .pipe(gulp.dest('./release/public/js'));
+  gulp.src('./scripts/**/*.js')
+      .pipe(uglify())
+      .pipe(gulp.dest('./release/public/js'));
 });
 
 gulp.task('compress-css', function(){
   var rootPath = './bower_components/';
-  var files = [rootPath+'bootstrap/dist/css/bootstrap.css', rootPath+'bootstrap/dist/css/bootstrap-theme.css'];
+  var files = [rootPath+'bootstrap/dist/css/bootstrap.css',
+               rootPath+'bootstrap/dist/css/bootstrap-theme.css',
+               rootPath+'toastr/toastr.css'];
   return gulp.src(files)
              .pipe(concat('libs.css'))
              .pipe(minifyCSS())

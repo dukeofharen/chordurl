@@ -1,0 +1,22 @@
+<div class="jumbotron">
+  <div class="container">
+    <h1>Hi!</h1>
+    <p>Use this form to shorten a URL.</p>
+    <form method="post" id="shorten_form">
+      <div class="col-md-8" id="url_div">
+        <input type="text" id="url" name="url" class="form-control" placeholder="URL..." />
+      </div>
+      <div class="col-md-4" id="custom_string_div">
+        <div class="input-group">
+          <input type="text" id="custom_string" name="custom_string" class="form-control" placeholder="Custom string..." />
+          <span class="input-group-btn">
+            <input type="submit" id="shorten_url" name="shorten_url" class="btn btn-primary" value="Shorten" />
+          </span>
+        </div>
+      </div>
+      <div class="shortened_url">
+        <a target="_blank"></a> =&gt; <a target="_blank"></a>
+      </div>
+    </form>
+  </div>
+</div>

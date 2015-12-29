@@ -1,6 +1,6 @@
 var urlBusiness = global.container.urlBusiness;
 var helpers = global.container.helpers;
-var crypto = require('crypto');
+var config = global.container.config;
 
 exports.route = function(app){
   app.get('/:segment', function(request, response){
@@ -31,11 +31,18 @@ exports.route = function(app){
     }, errorFunction);
   });
 
-  app.get('/shorten/:url', function(request, response){
+  function shortenURLRoute(request, response){
+    var url = request.params.url;
+    var customString = request.params.customString;
+    //TODO validate custom string
+    if(!url || url.substring(0, 4) != "http"){
+      response.status(400).send();
+      return;
+    }
     var ip = helpers.getIP(request);
-    urlBusiness.addUrl(request.params.url, request.params.customString, 0, ip, function(segment){
+    urlBusiness.addUrl(url, customString, 0, ip, function(segment){
       if(segment){
-        response.status(200).send(segment);
+        response.status(200).send(config.root_url+segment);
       }
       else{
         response.status(409).send();
@@ -44,5 +51,7 @@ exports.route = function(app){
       console.log(err);
       response.status(500).send();
     });
-  });
+  }
+  app.get('/shorten/:url', shortenURLRoute);
+  app.get('/shorten/:customString/:url', shortenURLRoute);
 };
