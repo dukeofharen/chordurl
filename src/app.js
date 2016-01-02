@@ -9,6 +9,7 @@ var path = require('path');
 app.use(express.static(path.resolve(__dirname, "public")));
 app.use(bodyParser.urlencoded({extended: false,limit:'50mb'}));
 app.use(express.static("public"));
+app.use(global.container.auth.middleware);
 app.disable('etag');
 app.disable('x-powered-by');
 

@@ -3,13 +3,17 @@ $(document).ready(function(){
     var url = $('#url').val();
     var customString = $('#custom_string').val();
     if(!url){
-      return;
+      return false;
     }
-    var apiURL = "shorten/";
-    if(customString){
-      apiURL += customString+"/";
+    var apiURL = "shorten?customString="+(customString ? customString : "")+"&url="+encodeURIComponent(url);
+
+    var $keyElem = $('#key');
+    if($keyElem.length > 0){
+        $.ajaxSetup({
+          headers: { 'ApiKey': $keyElem.val() }
+      });
     }
-    apiURL += encodeURIComponent(url);
+
     $.ajax(apiURL)
           .done(function(shortenedURL) {
             toastr.success(resources.url_is_shortened);
@@ -29,6 +33,9 @@ $(document).ready(function(){
               }
               else if(err.status == 400){
                 toastr.error(resources.url_invalid);
+              }
+              else if(err.status == 401){
+                toastr.error(resources.key_invalid);
               }
             }
             else{

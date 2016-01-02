@@ -22,8 +22,10 @@ gulp.task('clean', function(){
 });
 
 gulp.task('copy-to-release', function(){
-  return gulp.src('./src/**/*')
-             .pipe(gulp.dest('./release'));
+  gulp.src('./package.json')
+     .pipe(gulp.dest('./release'));
+  gulp.src('./src/**/*')
+      .pipe(gulp.dest('./release'));
 });
 
 gulp.task('express', function() {
@@ -35,10 +37,12 @@ gulp.task('compress-js', function() {
   var files = [rootPath+'jquery/dist/jquery.js',
                rootPath+'bootstrap/dist/js/bootstrap.js',
                rootPath+'toastr/toastr.js',
+               rootPath+'datatables/media/js/jquery.dataTables.js',
+               rootPath+'datatables/media/js/dataTables.bootstrap.js',
                './libs/modernizr-2.8.3-respond-1.4.2.min.js'];
   gulp.src(files)
              .pipe(concat('libs.js'))
-             .pipe(uglify())
+             //.pipe(uglify())
              .pipe(gulp.dest('./release/public/js'));
   gulp.src('./scripts/**/*.js')
       .pipe(uglify())
@@ -49,7 +53,9 @@ gulp.task('compress-css', function(){
   var rootPath = './bower_components/';
   var files = [rootPath+'bootstrap/dist/css/bootstrap.css',
                rootPath+'bootstrap/dist/css/bootstrap-theme.css',
-               rootPath+'toastr/toastr.css'];
+               rootPath+'toastr/toastr.css',
+               rootPath+'datatables/media/css/jquery.dataTables.min.css',
+               rootPath+'datatables/media/css/dataTables.bootstrap.css'];
   return gulp.src(files)
              .pipe(concat('libs.css'))
              .pipe(minifyCSS())
@@ -63,6 +69,10 @@ gulp.task('move-files', function(){
   var files = [rootPath+'bootstrap/dist/fonts/*'];
   gulp.src(files)
       .pipe(gulp.dest('./release/public/fonts'));
+
+  files = [rootPath+'datatables/media/images/*'];
+  gulp.src(files)
+      .pipe(gulp.dest('./release/public/images'));
 });
 
 gulp.task('watch', function() {
