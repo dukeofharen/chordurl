@@ -14,6 +14,20 @@ exports.createHash = function(){
 	return shasum.digest('hex').substring(0, 8);
 };
 
+exports.validateSegment = function(segment){
+	if(!segment){
+		return true;
+	}
+	if(segment == "shorten" || segment == "admin"){
+		return false;
+	}
+	if(segment.length > 15){
+		return false;
+	}
+	var pattern = /^[a-z0-9-.]+$/i;
+	return pattern.test(segment);
+};
+
 exports.renderView = function(view, onSuccess, onError){
 	fs.readFile(path.resolve(__dirname, "../views/template.html"), 'utf8', function (err,template) {
 		if (err) {

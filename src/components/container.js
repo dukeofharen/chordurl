@@ -6,14 +6,14 @@ exports.init = function(){
   global.container.config = require(path.resolve(__dirname, "../config.js"));
 
   //components
-  global.container.dataConnection = require(path.resolve(__dirname, "./dataconnection.js"));
+  global.container.mysqlConnection = require(path.resolve(__dirname, "./mysqlconnection.js"));
   global.container.helpers = require(path.resolve(__dirname, "./helpers.js"));
 
   //middleware
   global.container.auth = require(path.resolve(__dirname, "../middleware/auth.js"));
 
   //data
-  global.container.urlData = require(path.resolve(__dirname, "../data/url.js"));
+  global.container.urlData = require(path.resolve(__dirname, "../data/"+global.container.config.db_driver+"/url.js"));
 
   //business
   global.container.urlBusiness = require(path.resolve(__dirname, "../business/url.js"));

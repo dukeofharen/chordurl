@@ -1,13 +1,16 @@
 var urlBusiness = global.container.urlBusiness;
 var helpers = global.container.helpers;
 var config = global.container.config;
+var geoip = require("geoip-lite-country");
 
 exports.route = function(app){
   app.get('/shorten', function(request, response){
     var url = request.query.url;
     var customString = request.query.customString;
-    //TODO validate custom string: alphanumeric and specific reserved strings may not be used
-    //TODO set a hourly (or daily) limit of number of URLs that can be shortened
+    if(!helpers.validateSegment(customString)){
+      response.status(400).send();
+      return;
+    }
     if(!url || url.substring(0, 4) != "http"){
       response.status(400).send();
       return;
@@ -46,8 +49,9 @@ exports.route = function(app){
         if(!uas){
           uas = "";
         }
-        urlBusiness.insertClick(result.id, ip, referer, uas, function(){
-          urlBusiness.updateViews(result.id, function(){}, function(){});
+        var data = geoip.lookup(ip);
+        var country = data && data.country ? data.country : "";
+        urlBusiness.insertClick(result.id, ip, referer, uas, country, function(){
           response.redirect(301, result.url);
         }, errorFunction);
       }

@@ -10,7 +10,9 @@ exports.admin_accounts = [
   {username: "admin", password: "admin"}
 ];
 //Leave this array empty if this is meant as a public URL shortener.
-exports.shorten_keys = ["123"];
+exports.shorten_keys = [];
+
+exports.db_driver = "mysql";
 
 //MySQL settings
 exports.host = 'localhost';

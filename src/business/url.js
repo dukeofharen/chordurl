@@ -29,16 +29,12 @@ exports.getUrlBySegment = function(segment, onSuccess, onError){
   }, onError);
 };
 
-exports.insertClick = function(url_id, ip, referer, user_agent_string, onSuccess, onError){
-  urlData.insertClick(url_id, ip, referer, user_agent_string, onSuccess, onError);
+exports.insertClick = function(url_id, ip, referer, user_agent_string, country, onSuccess, onError){
+  urlData.insertClick(url_id, ip, referer, user_agent_string, country, onSuccess, onError);
 };
 
 exports.getStats = function(url_id, onSuccess, onError){
   urlData.getStats(url_id, onSuccess, onError);
-}
-
-exports.updateViews = function(url_id, onSuccess, onError){
-  urlData.updateViews(url_id, onSuccess, onError);
 }
 
 exports.addUrl = function(url, segment, level, ip, onSuccess, onError){
