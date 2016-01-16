@@ -21,7 +21,8 @@ $(document).ready(function(){
           return '<a href="'+data+'" target="_blank">'+data+'</a>';
         }
       },
-      { "data": "user_agent_string" }
+      { "data": "user_agent_string" },
+      { "data": "country" }
     ]
   });
 });
