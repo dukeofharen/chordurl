@@ -41,8 +41,8 @@ In `config.js`, you can set multiple admin accounts. These accounts can be used 
 
 ### URL overview
 
-![screenshots/admin_overview.png]()
+![URL overview](screenshots/admin_overview.png)
 
 ### Statistics overview
 
-![screenshots/admin_stat_overview.png]()
+![Statistics overview](screenshots/admin_stat_overview.png)
