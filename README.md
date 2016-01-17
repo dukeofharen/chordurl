@@ -34,3 +34,15 @@ There is a very simple API call to create short URLs. The pattern is like this:
 - `customString` (optional): a custom string for the short URL. If this isn't filled in, a custom string is made for you. This string should not contain more than 15 characters and can only contain numbers, letters and the characters "-" and ".".
 
 The response is the shortened URL (e.g. chordu.rl/ducode). This URL is free to call, except when you've set at least one key in the config file. If this is the case, you'll need to send an extra header called "ApiKey" with one of the specified keys.
+
+## Administration
+
+In `config.js`, you can set multiple admin accounts. These accounts can be used to log in to the admin interface. You can reach the admin interface by going to `http://chordurl/admin`. A popup box appears where you can fill in the username and password.
+
+### URL overview
+
+![screenshots/admin_overview.png]()
+
+### Statistics overview
+
+![screenshots/admin_stat_overview.png]()
