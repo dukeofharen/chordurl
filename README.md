@@ -49,4 +49,4 @@ In `config.js`, you can set multiple admin accounts. These accounts can be used 
 
 ## Releases
 
-- 0.0.1 ([http://duc.gr/cu0.0.1](Download))
+- 0.0.1 ([Download](http://duc.gr/cu0.0.1))
