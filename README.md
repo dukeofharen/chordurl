@@ -46,3 +46,7 @@ In `config.js`, you can set multiple admin accounts. These accounts can be used 
 ### Statistics overview
 
 ![Statistics overview](screenshots/admin_stat_overview.png)
+
+## Releases
+
+- 0.0.1 ([http://duc.gr/cu0.0.1](Download))
