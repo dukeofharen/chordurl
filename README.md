@@ -1,6 +1,11 @@
 # ChordURL
 A URL shortener written using the Node.js ecosystem.
 
+## Releases
+
+- Version 0.0.2 ([Download](http://duc.gr/cu0.0.2))
+- Version 0.0.1 ([Download](http://duc.gr/cu0.0.1))
+
 ## Install & run
 
 1. Make sure `bower` and `gulp` are installed.
@@ -46,7 +51,3 @@ In `config.js`, you can set multiple admin accounts. These accounts can be used 
 ### Statistics overview
 
 ![Statistics overview](screenshots/admin_stat_overview.png)
-
-## Releases
-
-- 0.0.1 ([Download](http://duc.gr/cu0.0.1))
