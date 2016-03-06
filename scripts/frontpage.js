@@ -25,6 +25,10 @@ $(document).ready(function(){
             $('.shortened_url a:nth-child(2)').text(shortenedURL);
 
             $('.shortened_url').slideDown();
+            
+            $('#qrcode').html("");
+            var qrcode = new QRCode(document.getElementById("qrcode"), {width: 128, height: 128});
+            qrcode.makeCode(shortenedURL);
           })
           .fail(function(err) {
             if(err){

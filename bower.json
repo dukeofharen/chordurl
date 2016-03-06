@@ -19,6 +19,7 @@
     "bootstrap": "~3.3.6",
     "jquery": "~2.1.4",
     "toastr": "~2.1.2",
-    "datatables": "DataTables/DataTables#~1.10.10"
+    "datatables": "DataTables/DataTables#~1.10.10",
+    "qrcode.js": "davidshimjs/qrcodejs"
   }
 }

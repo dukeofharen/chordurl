@@ -39,6 +39,7 @@ gulp.task('compress-js', function() {
                rootPath+'toastr/toastr.js',
                rootPath+'datatables/media/js/jquery.dataTables.js',
                rootPath+'datatables/media/js/dataTables.bootstrap.js',
+               rootPath+'qrcode.js/qrcode.js',
                './libs/modernizr-2.8.3-respond-1.4.2.min.js'];
   gulp.src(files)
              .pipe(concat('libs.js'))
